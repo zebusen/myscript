@@ -20,7 +20,6 @@ function compile() {
     function zipit(){
       cd AnyKernel || exit 1
       zip -r9 personal-rad-hmp-oldcam.zip *
-      cd ..
     }
     function inform() {
        curl -s -X POST "https://api.telegram.org/bot1628360095:AAF947lAXmKVaw9jRpx-CURb_wK2FZKl9z8/sendMessage" \
@@ -32,7 +31,7 @@ function compile() {
     curl -F document=@"personal-rad-hmp-oldcam.zip" "https://api.telegram.org/bot1628360095:AAF947lAXmKVaw9jRpx-CURb_wK2FZKl9z8/sendDocument" \
       -F chat_id="-1001214166550" \
       -F "disable_web_page_preview=true" \
-      -F "parse_mode=html" \
+      -F "parse_mode=html" 
     }
     inform
     compile
