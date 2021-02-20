@@ -43,4 +43,3 @@ function compile() {
     compile
     zipit
     push
-    
