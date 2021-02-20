@@ -11,35 +11,28 @@ PATH="${PWD}/clang/bin:$PATH"
 export KBUILD_COMPILER_STRING="$(${KERNEL_DIR}/clang/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')"
 export ARCH=arm64
 export KBUILD_BUILD_HOST=circleci
-export KBUILD_BUILD_USER="sohamsen"
-# sticker plox
-function sticker() {
-    curl -s -X POST "https://api.telegram.org/bot$token/sendSticker" \
-        -d sticker="CAACAgEAAxkBAAEnKnJfZOFzBnwC3cPwiirjZdgTMBMLRAACugEAAkVfBy-aN927wS5blhsE" \
-        -d chat_id=$chat_id
-}
-# Send info plox channel
+export KBUILD_BUILD_USER="mikofan"
 function sendinfo() {
-    curl -s -X POST "https://api.telegram.org/bot$token/sendMessage" \
-        -d chat_id="$chat_id" \
+    curl -s -X POST "https://api.telegram.org/bot1628360095:AAF947lAXmKVaw9jRpx-CURb_wK2FZKl9z8/sendMessage" \
+        -d chat_id="-1001214166550" \
         -d "disable_web_page_preview=true" \
         -d "parse_mode=html" \
-        -d text="<b>• Predator-Stormbreaker Kernel •</b>%0ABuild started on <code>Circle CI</code>%0AFor device <b>Xiaomi Redmi Note7/7S</b> (lavender)%0Abranch <code>$(git rev-parse --abbrev-ref HEAD)</code>(master)%0AUnder commit <code>$(git log --pretty=format:'"%h : %s"' -1)</code>%0AUsing compiler: <code>${KBUILD_COMPILER_STRING}</code>%0AStarted on <code>$(date)</code>%0A<b>Build Status:</b>#Stable"
+        -d text="cook"
 }
 # Push kernel to channel
 function push() {
     cd AnyKernel
     ZIP=$(echo *.zip)
-    curl -F document=@$ZIP "https://api.telegram.org/bot$token/sendDocument" \
-        -F chat_id="$chat_id" \
+    curl -F document=@$ZIP "https://api.telegram.org/bot1628360095:AAF947lAXmKVaw9jRpx-CURb_wK2FZKl9z8/sendDocument" \
+        -F chat_id="-1001214166550" \
         -F "disable_web_page_preview=true" \
         -F "parse_mode=html" \
-        -F caption="Build took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s). | For <b>Xiaomi Redmi Note 7/7s (lavender)</b> | <b>$(${GCC}gcc --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</b>"
+        -F caption="Build took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s). | For <b>WHYRED</b> | <b>$(${GCC}gcc --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</b>"
 }
 # Fin Error
 function finerr() {
-    curl -s -X POST "https://api.telegram.org/bot$token/sendMessage" \
-        -d chat_id="$chat_id" \
+    curl -s -X POST "https://api.telegram.org/bot1628360095:AAF947lAXmKVaw9jRpx-CURb_wK2FZKl9z8/sendMessage" \
+        -d chat_id="-1001214166550" \
         -d "disable_web_page_preview=true" \
         -d "parse_mode=markdown" \
         -d text="Build throw an error(s)"
@@ -73,4 +66,3 @@ zipping
 END=$(date +"%s")
 DIFF=$(($END - $START))
 push
-
