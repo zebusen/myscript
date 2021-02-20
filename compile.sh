@@ -9,7 +9,6 @@ git config --global user.email "zebusensei@gmail.com"
 export ARCH=arm64
 export KBUILD_BUILD_HOST=circleci
 export KBUILD_BUILD_USER="zebusen"
-git clone https://github.com/zebusen/android_kernel_xiaomi_sdm660 -b 11-HMP
 git clone https://github.com/osm0sis/AnyKernel3 -b master
 function compile() {
     cd /root/project/android_kernel_xiaomi_sdm660
