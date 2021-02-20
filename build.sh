@@ -40,17 +40,13 @@ function finerr() {
 }
 # Compile plox
 function compile() {
+    cd /root/project/android_kernel_xiaomi_sdm660
     make O=out ARCH=arm64 whyred_defconfig
     make -j$(nproc --all) O=out \
                           ARCH=arm64 \
 			  CC=clang \
 			  CROSS_COMPILE=aarch64-linux-gnu- \
 			  CROSS_COMPILE_ARM32=arm-linux-gnueabi-
-
-    if ! [ -a "$IMAGE" ]; then
-        finerr
-        exit 1
-    fi
     cp out/arch/arm64/boot/Image.gz-dtb AnyKernel
 }
 # Zipping
