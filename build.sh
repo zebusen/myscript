@@ -47,11 +47,11 @@ function compile() {
 			  CC=clang \
 			  CROSS_COMPILE=aarch64-linux-gnu- \
 			  CROSS_COMPILE_ARM32=arm-linux-gnueabi-
-    cp out/arch/arm64/boot/Image.gz-dtb AnyKernel
+    cp out/arch/arm64/boot/Image.gz-dtb /root/project/AnyKernel
 }
 # Zipping
 function zipping() {
-    cd AnyKernel || exit 1
+    cd /root/project/AnyKernel || exit 1
     zip -r9 personal-hmp-sdm660.zip *
     cd ..
 }
