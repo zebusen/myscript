@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
-
-
 export TZ=Asia/Taipei
-
 # Configure git
 git config --global user.name "Zebusen"
 git config --global user.email "zebusensei@gmail.com"
@@ -18,9 +15,7 @@ function compile() {
 			  CC=clang \
 			  CROSS_COMPILE=aarch64-linux-gnu- \
 			  CROSS_COMPILE_ARM32=arm-linux-gnueabi-
-
     cp out/arch/arm64/boot/Image.gz-dtb AnyKernel
-    
     }
     function zipit(){
       cd AnyKernel || exit 1
@@ -28,7 +23,7 @@ function compile() {
       cd ..
     }
     function inform() {
-     curl -s -X POST "https://api.telegram.org/bot1628360095:AAF947lAXmKVaw9jRpx-CURb_wK2FZKl9z8/sendMessage" \
+       curl -s -X POST "https://api.telegram.org/bot1628360095:AAF947lAXmKVaw9jRpx-CURb_wK2FZKl9z8/sendMessage" \
       -d chat_id="-1001214166550" \
       -d text="Cooking"
     }
