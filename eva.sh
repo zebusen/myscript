@@ -22,8 +22,8 @@ function sendinfo() {
 }
 # Push kernel to channel
 function eva() {
-git clone --depth=1 https://github.com/mvaisakh/gcc-arm64.git -b lld-integration gcc64
-		git clone --depth=1 https://github.com/mvaisakh/gcc-arm.git -b lld-integration gcc32
+git clone --depth=1 https://github.com/mvaisakh/gcc-arm64.git -b gcc-master gcc64
+		git clone --depth=1 https://github.com/mvaisakh/gcc-arm.git -b gcc-master gcc32
 		GCC64_DIR=$KERNEL_DIR/gcc64
 		GCC32_DIR=$KERNEL_DIR/gcc32
 export KBUILD_COMPILER_STRING=$("$GCC64_DIR"/bin/aarch64-elf-gcc --version | head -n 1)
