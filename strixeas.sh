@@ -41,7 +41,7 @@ function finerr() {
 }
 # Compile plox
 function compile() {
-    cd /root/project/android_kernel_xiaomi_whyred
+    cd /root/project/STRIX_kernel_xiaomi-sdm660
     make O=out ARCH=arm64 whyred_defconfig
     make -j$(nproc --all) O=out \
                           ARCH=arm64 \
