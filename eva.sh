@@ -26,8 +26,6 @@ git clone --depth=1 https://github.com/mvaisakh/gcc-arm64.git -b lld-integration
 		git clone --depth=1 https://github.com/mvaisakh/gcc-arm.git -b lld-integration gcc32
 		GCC64_DIR=$KERNEL_DIR/gcc64
 		GCC32_DIR=$KERNEL_DIR/gcc32
-export ARCH=arm64
-export SUBARCH=arm64
 export KBUILD_COMPILER_STRING=$("$GCC64_DIR"/bin/aarch64-elf-gcc --version | head -n 1)
 PATH=$GCC64_DIR/bin/:$GCC32_DIR/bin/:/usr/bin:$PATH
 }
@@ -51,13 +49,15 @@ function finerr() {
 }
 # Compile plox
 function compile() {
-export CROSS_COMPILE_ARM32=$GCC32_DIR/bin/arm-eabi-
+export ARCH=arm64
+export SUBARCH=arm64
     cd /root/project/android_kernel_xiaomi_whyred
     make O=out ARCH=arm64 whyred_defconfig
     
     make -j$(nproc --all) O=out \
                           ARCH=arm64 \
-			  CROSS_COMPILE=aarch64-elf-
+			  CROSS_COMPILE=aarch64-elf- \
+			  CROSS_COMPILE_ARM32=$GCC32_DIR/bin/arm-eabi-
     cp out/arch/arm64/boot/Image.gz-dtb /root/project/AnyKernel
 }
 # Zipping
