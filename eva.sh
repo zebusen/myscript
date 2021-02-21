@@ -10,8 +10,6 @@ TANGGAL=$(date +"%F-%S")
 START=$(date +"%s")
 KERNEL_DIR=$(pwd)
 # PATH="${PWD}/clang/bin:$PATH"
-export KBUILD_COMPILER_STRING=$("$GCC64_DIR"/bin/aarch64-elf-gcc --version | head -n 1)
-PATH=$GCC64_DIR/bin/:$GCC32_DIR/bin/:/usr/bin:$PATH
 # export KBUILD_COMPILER_STRING="$(${KERNEL_DIR}/clang/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')"
 export ARCH=arm64
 export KBUILD_BUILD_HOST=circleci
@@ -27,10 +25,12 @@ function sendinfo() {
 function eva() {
 git clone --depth=1 https://github.com/mvaisakh/gcc-arm64.git -b lld-integration gcc64
 		git clone --depth=1 https://github.com/mvaisakh/gcc-arm.git -b lld-integration gcc32
-GCC64_DIR=$KERNEL_DIR/gcc64
-GCC32_DIR=$KERNEL_DIR/gcc32
+		GCC64_DIR=$KERNEL_DIR/gcc64
+		GCC32_DIR=$KERNEL_DIR/gcc32
 export ARCH=arm64
 export SUBARCH=arm64
+export KBUILD_COMPILER_STRING=$("$GCC64_DIR"/bin/aarch64-elf-gcc --version | head -n 1)
+PATH=$GCC64_DIR/bin/:$GCC32_DIR/bin/:/usr/bin:$PATH
 }
 function push() {
     cd AnyKernel
