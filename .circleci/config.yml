@@ -11,7 +11,7 @@ jobs:
            apt-get -y update && apt-get -y upgrade && apt-get -y install bc build-essential bison flex zip gcc clang libc6 curl libstdc++6 git wget libssl-dev && apt-get -y install gcc-arm-linux-gnueabi && apt-get -y install p7zip-full python python2 python3 python3-pip
            git config --global user.name "zebusen"
            git config --global user.email "zebusensei@gmail.com"
-           git clone --depth=1 --quiethttps://github.com/STRIX-Project/STRIX_kernel_xiaomi-sdm660 -b sdm660-eas-test
+           git clone --depth=1 --quiet https://github.com/STRIX-Project/STRIX_kernel_xiaomi-sdm660 -b sdm660-eas-test
            git clone --depth=1 --quiet https://github.com/zebusen/myscript.git -b build
            script -c "bash -x myscript/strixeas.sh"
 workflows:
