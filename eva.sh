@@ -33,7 +33,7 @@ function push() {
         -F chat_id="-1001214166550" \
         -F "disable_web_page_preview=true" \
         -F "parse_mode=html" \
-        -F caption="Build took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s). | For <b>WHYRED</b> | using Proton Clang (I'll update this everytime when I change compiler)"
+        -F caption="Build took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s). | For <b>WHYRED</b> | using EvaGCC (I'll update this everytime when I change compiler)"
 }
 # Fin Error
 function finerr() {
@@ -50,7 +50,6 @@ function compile() {
     make O=out ARCH=arm64 whyred_defconfig
     make -j$(nproc --all) O=out \
                           ARCH=arm64 \
-			  CC=clang \
 			  CROSS_COMPILE=aarch64-linux-gnu- \
 			  CROSS_COMPILE_ARM32=arm-linux-gnueabi-
     cp out/arch/arm64/boot/Image.gz-dtb /root/project/AnyKernel
@@ -58,7 +57,7 @@ function compile() {
 # Zipping
 function zipping() {
     cd /root/project/AnyKernel || exit 1
-    zip -r9 personal-hmp-rad.zip *
+    zip -r9 personal-eas-rad.zip *
     cd ..
 }
 eva
