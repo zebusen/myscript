@@ -2,7 +2,11 @@
 echo "Cloning dependencies"
 sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y && sudo apt-get update
 sudo apt-get install flex bison ncurses-dev texinfo gcc gperf patch libtool automake g++ libncurses5-dev gawk subversion expat libexpat1-dev python-all-dev binutils-dev bc libcap-dev autoconf libgmp-dev build-essential pkg-config libmpc-dev libmpfr-dev autopoint gettext txt2man liblzma-dev libssl-dev libz-dev mercurial wget tar gcc-10 g++-10 --fix-broken --fix-missing
- clone() {
+git clone https://github.com/mvaisakh/gcc-build.git gcc-build
+cd /root/project/gcc-build
+./build-gcc.sh -a <arm64> 
+clone() {
+	cd/root/project
 	echo " "
 		msg "|| Cloning GCC 9.3.0 baremetal ||"
 		git clone --depth=1 https://github.com/mvaisakh/gcc-arm64.git gcc64
@@ -56,24 +60,6 @@ build_kernel() {
 
 		BUILD_END=$(date +"%s")
 		DIFF=$((BUILD_END - BUILD_START))
-
-		if [ -f "$KERNEL_DIR"/out/arch/arm64/boot/Image.gz-dtb ] 
-	    then
-	    	msg "|| Kernel successfully compiled ||"
-	    	if [ $BUILD_DTBO = 1 ]
-			then
-				msg "|| Building DTBO ||"
-				tg_post_msg "<code>Building DTBO..</code>" "$CHATID"
-				python2 "$KERNEL_DIR/scripts/ufdt/libufdt/utils/src/mkdtboimg.py" \
-					create "$KERNEL_DIR/out/arch/arm64/boot/dtbo.img" --page_size=4096 "$KERNEL_DIR/out/arch/arm64/boot/dts/qcom/sm6150-idp-overlay.dtbo"
-			fi
-				gen_zip
-		else
-			if [ "$PTTG" = 1 ]
- 			then
-				tg_post_msg "<b>❌ Build failed to compile after $((DIFF / 60)) minute(s) and $((DIFF % 60)) seconds</b>" "$CHATID"
-			fi
-		fi
 	
 }
 gen_zip() {
@@ -84,3 +70,5 @@ gen_zip() {
 clone
 exports
 build_kernel
+gen_zip
+tg_post_build
