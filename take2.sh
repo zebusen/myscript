@@ -4,7 +4,7 @@ sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y && sudo apt-get update
 sudo apt-get install flex bison ncurses-dev texinfo gcc gperf patch libtool automake g++ libncurses5-dev gawk subversion expat libexpat1-dev python-all-dev binutils-dev bc libcap-dev autoconf libgmp-dev build-essential pkg-config libmpc-dev libmpfr-dev autopoint gettext txt2man liblzma-dev libssl-dev libz-dev mercurial wget tar gcc-10 g++-10 --fix-broken --fix-missing
 git clone https://github.com/mvaisakh/gcc-build.git gcc-build
 cd /root/project/gcc-build
-./build-gcc.sh -a <arm64> 
+script -c "bash -x build-gcc.sh -a <arm64>"
 clone() {
 	cd/root/project
 	echo " "
