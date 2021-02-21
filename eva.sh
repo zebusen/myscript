@@ -11,7 +11,6 @@ START=$(date +"%s")
 KERNEL_DIR=$(pwd)
 # PATH="${PWD}/clang/bin:$PATH"
 # export KBUILD_COMPILER_STRING="$(${KERNEL_DIR}/clang/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')"
-export ARCH=arm64
 export KBUILD_BUILD_HOST=circleci
 export KBUILD_BUILD_USER="mikofan"
 function sendinfo() {
@@ -59,7 +58,6 @@ export CROSS_COMPILE_ARM32=$GCC32_DIR/bin/arm-eabi-
     make -j$(nproc --all) O=out \
                           ARCH=arm64 \
 			  CROSS_COMPILE=aarch64-elf-
-			  CROSS_COMPILE_ARM32=arm-linux-gnueabi-
     cp out/arch/arm64/boot/Image.gz-dtb /root/project/AnyKernel
 }
 # Zipping
