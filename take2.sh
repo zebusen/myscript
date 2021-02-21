@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 echo "Cloning dependencies"
-
+sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y && sudo apt-get update
+sudo apt-get install flex bison ncurses-dev texinfo gcc gperf patch libtool automake g++ libncurses5-dev gawk subversion expat libexpat1-dev python-all-dev binutils-dev bc libcap-dev autoconf libgmp-dev build-essential pkg-config libmpc-dev libmpfr-dev autopoint gettext txt2man liblzma-dev libssl-dev libz-dev mercurial wget tar gcc-10 g++-10 --fix-broken --fix-missing
  clone() {
 	echo " "
 		msg "|| Cloning GCC 9.3.0 baremetal ||"
