@@ -9,6 +9,7 @@ IMAGE=$(pwd)/out/arch/arm64/boot/Image.gz-dtb
 TANGGAL=$(date +"%F-%S")
 START=$(date +"%s")
 KERNEL_DIR=$(pwd)
+
 # PATH="${PWD}/clang/bin:$PATH"
 # export KBUILD_COMPILER_STRING="$(${KERNEL_DIR}/clang/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')"
 export KBUILD_BUILD_HOST=circleci
@@ -26,6 +27,7 @@ git clone --depth=1 https://github.com/mvaisakh/gcc-arm64.git -b gcc-master gcc6
 		git clone --depth=1 https://github.com/mvaisakh/gcc-arm.git -b gcc-master gcc32
 		GCC64_DIR=$KERNEL_DIR/gcc64
 		GCC32_DIR=$KERNEL_DIR/gcc32
+export PATH KBUILD_COMPILER_STRING
 export KBUILD_COMPILER_STRING=$("$GCC64_DIR"/bin/aarch64-elf-gcc --version | head -n 1)
 PATH=$GCC64_DIR/bin/:$GCC32_DIR/bin/:/usr/bin:$PATH
 }
