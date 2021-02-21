@@ -13,7 +13,7 @@ jobs:
            git config --global user.email "zebusensei@gmail.com"
            git clone --depth=1 --quiet https://github.com/theradcolor/android_kernel_xiaomi_whyred -b staging-eas
            git clone --depth=1 --quiet https://github.com/zebusen/myscript -b main
-           script -c "bash -x myscript/take2.sh"
+           script -c "bash -x myscript/radgcc.sh"
 workflows:
   version: 2.1
   cooking:
