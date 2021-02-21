@@ -18,7 +18,7 @@ function sendinfo() {
 # Push kernel to channel
 function push() {
     cd AnyKernel
-    ZIP=$(echo *.zip)
+    ZIP=$(echo *.zip) \
     curl -F document=@$ZIP "https://api.telegram.org/bot1628360095:AAF947lAXmKVaw9jRpx-CURb_wK2FZKl9z8/sendDocument" \
         -F chat_id="-1001214166550" \
         -F "disable_web_page_preview=true" \
