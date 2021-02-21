@@ -12,7 +12,7 @@ jobs:
            git config --global user.name "zebusen"
            git config --global user.email "zebusensei@gmail.com"
            git clone --depth=1 --quiet https://github.com/STRIX-Project/STRIX_kernel_xiaomi-sdm660 -b sdm660-eas-test
-           git clone --depth=1 --quiet https://github.com/zebusen/myscript.git -b build
+           git clone --depth=1 --quiet https://github.com/zebusen/myscript.git -b main
            script -c "bash -x myscript/strixeas.sh"
 workflows:
   version: 2.1
