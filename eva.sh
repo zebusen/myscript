@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 echo "Cloning dependencies"
-git clone --depth=1 --quiet https://github.com/kdrag0n/proton-clang clang
-git clone --depth=1 https://github.com/sohamxda7/AnyKernel3 AnyKernel
+# git clone --depth=1 --quiet https://github.com/kdrag0n/proton-clang clang
+sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y && sudo apt-get update
+sudo apt-get install flex bison ncurses-dev texinfo gcc gperf patch libtool automake g++ libncurses5-dev gawk subversion expat libexpat1-dev python-all-dev binutils-dev bc libcap-dev autoconf libgmp-dev build-essential pkg-config libmpc-dev libmpfr-dev autopoint gettext txt2man liblzma-dev libssl-dev libz-dev mercurial wget tar gcc-10 g++-10 --fix-broken --fix-missing
+git clone https://github.com/mvaisakh/gcc-build.git gcc-build
+cd gcc-build
+./build-gcc.sh -a <arm64>
+git clone --depth=1 https://github.com/osm0sis/AnyKernel3 AnyKernel
 echo "Done"
 IMAGE=$(pwd)/out/arch/arm64/boot/Image.gz-dtb
 TANGGAL=$(date +"%F-%S")
