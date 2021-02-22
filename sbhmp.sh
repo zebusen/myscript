@@ -25,7 +25,7 @@ cd /root/project/kranul/arch/arm64/configs
 }
 function lmao(){
 getConfig
-sed -e 's/# CONFIG_THINLTO is not set/CONFIG_THINLTO=y/' -e 's/CONFIG_DEFAULT_ANXIETY=y/CONFIG_DEFAULT_CFQ=y/' -e 's/CONFIG_AUDIT=y/# CONFIG_AUDIT is not set/' whyred-oldcam_defconfig
+sed -e 's/CONFIG_DEFAULT_ANXIETY=y/CONFIG_DEFAULT_CFQ=y/' -e 's/CONFIG_AUDIT=y/# CONFIG_AUDIT is not set/' whyred-oldcam_defconfig
 }
 # Push kernel to channel
 function push() {
