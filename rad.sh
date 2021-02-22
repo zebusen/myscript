@@ -20,7 +20,8 @@ function sendinfo() {
         -d "parse_mode=html" \
         -d text="cook"
 }
-function commit() {
+function fixcharger() {
+echo "Add commit for fixing charging"
 cd /root/project/android_kernel_xiaomi_whyred
 git remote add zebu https://github.com/theradcolor/android_kernel_xiaomi_whyred.git
 git fetch zebu
@@ -63,7 +64,7 @@ function zipping() {
     cd ..
 }
 sendinfo
-commit
+fixcharger
 compile
 zipping
 END=$(date +"%s")
