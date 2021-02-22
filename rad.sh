@@ -20,7 +20,7 @@ function sendinfo() {
         -d "parse_mode=html" \
         -d text="cook"
 }
-function commit(){
+function commit() {
 cd /root/project/android_kernel_xiaomi_whyred
 git remote add zebu https://github.com/theradcolor/android_kernel_xiaomi_whyred.git
 git fetch zebu
@@ -63,6 +63,7 @@ function zipping() {
     cd ..
 }
 sendinfo
+commit
 compile
 zipping
 END=$(date +"%s")
