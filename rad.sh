@@ -27,12 +27,6 @@ git config uploadpack.allowReachableSHA1InWant true
 git remote add zebu https://github.com/theradcolor/android_kernel_xiaomi_whyred.git
 git fetch zebu ec27b2960cdca9fd2d5df46da21b20a90387be3a
 git cherry-pick ec27b2960cdca9fd2d5df46da21b20a90387be3a
-git remote add zebu2 https://github.com/Pzqqt/android_kernel_xiaomi_whyred.git
-git fetch zebu2 9321bf2585daf5181cfde9558631771830c7d9cc
-git cherry-pick 9321bf2585daf5181cfde9558631771830c7d9cc
-git remote add zebu3 https://github.com/psndna88/AGNi_pureMIUI.git
-git fetch zebu3 a65e1acd6a3d5ea4fce40619a9a3592ba8bbec8d
-git cherry-pick a65e1acd6a3d5ea4fce40619a9a3592ba8bbec8d
 }
 # Push kernel to channel
 function push() {
