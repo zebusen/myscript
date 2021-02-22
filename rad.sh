@@ -2,6 +2,7 @@
 echo "Cloning dependencies"
 git clone --depth=1 --quiet https://github.com/kdrag0n/proton-clang clang
 git clone --depth=1 https://github.com/Reinazhard/AnyKernel3 AnyKernel
+
 echo "Done"
 IMAGE=$(pwd)/out/arch/arm64/boot/Image.gz-dtb
 TANGGAL=$(date +"%F-%S")
@@ -18,6 +19,12 @@ function sendinfo() {
         -d "disable_web_page_preview=true" \
         -d "parse_mode=html" \
         -d text="cook"
+}
+function commit(){
+cd /root/project/android_kernel_xiaomi_whyred
+git remote add zebu https://github.com/theradcolor/android_kernel_xiaomi_whyred.git
+git fetch zebu
+git cherry-pick ec27b2960cdca9fd2d5df46da21b20a90387be3a
 }
 # Push kernel to channel
 function push() {
