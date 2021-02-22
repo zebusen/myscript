@@ -22,9 +22,9 @@ function sendinfo() {
 }
 function lmao(){
 cd /root/project/kranul/arch/arm64/configs
-sed 's/# CONFIG_THINLTO is not set/CONFIG_THINLTO=y' whyred-oldcam_defconfig
-sed 's/CONFIG_DEFAULT_ANXIETY=y/CONFIG_DEFAULT_CFQ=y' whyred-oldcam-defconfig
-sed 's/CONFIG_AUDIT=y/# CONFIG_AUDIT is not set' whyred-oldcam-defconfig
+sed 's/# CONFIG_THINLTO is not set/CONFIG_THINLTO=y/g' whyred-oldcam_defconfig
+sed 's/CONFIG_DEFAULT_ANXIETY=y/CONFIG_DEFAULT_CFQ=y/g' whyred-oldcam-defconfig
+sed 's/CONFIG_AUDIT=y/# CONFIG_AUDIT is not set/g' whyred-oldcam-defconfig
 }
 # Push kernel to channel
 function push() {
