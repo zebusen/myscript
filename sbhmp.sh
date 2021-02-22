@@ -2,7 +2,7 @@
 echo "Cloning dependencies"
 sudo apt-get -y install sed
 git clone --depth=1 --quiet https://github.com/kdrag0n/proton-clang clang
-git clone --depth=1 https://github.com/theradcolor/AnyKernel3 AnyKernel
+git clone --depth=1 https://github.com/Reinazhard/AnyKernel3 AnyKernel
 echo "Done"
 IMAGE=$(pwd)/out/arch/arm64/boot/Image.gz-dtb
 TANGGAL=$(date +"%F-%S")
