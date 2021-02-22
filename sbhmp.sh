@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 echo "Cloning dependencies"
+sudo apt-get -y install sed
 git clone --depth=1 --quiet https://github.com/kdrag0n/proton-clang clang
-git clone --depth=1 https://github.com/osm0sis/AnyKernel3 AnyKernel
+git clone --depth=1 https://github.com/theradcolor/AnyKernel3 AnyKernel
 echo "Done"
 IMAGE=$(pwd)/out/arch/arm64/boot/Image.gz-dtb
 TANGGAL=$(date +"%F-%S")
@@ -18,6 +19,12 @@ function sendinfo() {
         -d "disable_web_page_preview=true" \
         -d "parse_mode=html" \
         -d text="cook"
+}
+function lmao(){
+cd /root/project/kranul/arch/arm64/configs
+sed 's/# CONFIG_THINLTO is not set/CONFIG_THINLTO=y' whyred-oldcam_defconfig
+sed 's/CONFIG_DEFAULT_ANXIETY=y/CONFIG_DEFAULT_CFQ=y' whyred-oldcam-defconfig
+sed 's/CONFIG_AUDIT=y/# CONFIG_AUDIT is not set' whyred-oldcam-defconfig
 }
 # Push kernel to channel
 function push() {
@@ -56,6 +63,7 @@ function zipping() {
     cd ..
 }
 sendinfo
+lmao
 compile
 zipping
 END=$(date +"%s")
