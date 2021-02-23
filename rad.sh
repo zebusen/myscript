@@ -27,10 +27,9 @@ git config uploadpack.allowReachableSHA1InWant true
 git remote add zebu https://github.com/theradcolor/android_kernel_xiaomi_whyred.git
 git fetch zebu ec27b2960cdca9fd2d5df46da21b20a90387be3a
 git cherry-pick ec27b2960cdca9fd2d5df46da21b20a90387be3a
-git push origin kernel-hmp
 git remote add linux-stable https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git/
 git fetch linux-stable
-git merge v4.4.257 --commit
+git merge v4.4.257
 }
 # Push kernel to channel
 function push() {
