@@ -11,7 +11,7 @@ KERNEL_DIR=$(pwd)
 PATH="${PWD}/clang/bin:$PATH"
 export KBUILD_COMPILER_STRING="$(${KERNEL_DIR}/clang/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')"
 export ARCH=arm64
-export KBUILD_BUILD_HOST=circleci
+export KBUILD_BUILD_HOST=hololive
 export KBUILD_BUILD_USER="mikofan"
 function sendinfo() {
     curl -s -X POST "https://api.telegram.org/bot1628360095:AAF947lAXmKVaw9jRpx-CURb_wK2FZKl9z8/sendMessage" \
@@ -23,10 +23,10 @@ function sendinfo() {
 function fixcharger() {
 echo "Add commit for fixing charging"
 cd /root/project/android_kernel_xiaomi_whyred
-git config uploadpack.allowReachableSHA1InWant true
-git remote add zebu https://github.com/theradcolor/android_kernel_xiaomi_whyred.git
-git fetch zebu ec27b2960cdca9fd2d5df46da21b20a90387be3a
-git cherry-pick ec27b2960cdca9fd2d5df46da21b20a90387be3a
+#git config uploadpack.allowReachableSHA1InWant true
+#git remote add zebu https://github.com/theradcolor/android_kernel_xiaomi_whyred.git
+#git fetch zebu ec27b2960cdca9fd2d5df46da21b20a90387be3a
+#git cherry-pick ec27b2960cdca9fd2d5df46da21b20a90387be3a
 }
 # Push kernel to channel
 function push() {
@@ -50,7 +50,7 @@ function finerr() {
 # Compile plox
 function compile() {
     cd /root/project/android_kernel_xiaomi_whyred
-    make O=out ARCH=arm64 whyred_defconfig
+    make O=out ARCH=arm64 whyred-perf_defconfig
     make -j$(nproc --all) O=out \
                           ARCH=arm64 \
 			  CC=clang \
@@ -61,7 +61,7 @@ function compile() {
 # Zipping
 function zipping() {
     cd /root/project/AnyKernel || exit 1
-    zip -r9 personal-hmp-rad.zip *
+    zip -r9 personal-hmp-panda.zip *
     cd ..
 }
 sendinfo
