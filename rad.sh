@@ -30,10 +30,12 @@ git cherry-pick ec27b2960cdca9fd2d5df46da21b20a90387be3a
 git remote add zebu2 https://github.com/SreekanthPalakurthi/kranul
 git fetch --shallow-since=2021-01-31 zebu2
 git cherry-pick f14650b1984e23a1304eaee8aeae629414c92801
-git remote add zebu3 https://github.com/gregkh/linux
-git fetch --shallow-since=2021-02-17 zebu3
-git cherry-pick v4.4.255..v.4.4.257
-git cherry-pick v4.4.257..v.4.4.258
+git remote add zebu4 https://github.com/STRIX-Project/STRIX_kernel_xiaomi-sdm660
+git fetch --shallow-since=2021-02-05 zebu4
+git cherry-pick cfaaf789335d9b7c82bd059919f50510d5ce2cfd
+git cherry-pick cc8e52fd9bf4c921cab3d731878b177f764635fd
+git cherry-pick 4dcc711b847849a41e489752a61799e546312151
+git cherry-pick c9e0fd4611a99e86f2a68319d86d0516fa5b5c40
 }
 # Push kernel to channel
 function push() {
