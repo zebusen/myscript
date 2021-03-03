@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 echo "Cloning dependencies"
-#git clone --depth=1 --quiet https://github.com/kdrag0n/proton-clang clang
+git clone --depth=1 --quiet https://github.com/kdrag0n/proton-clang clang
 git clone --depth=1 https://github.com/Reinazhard/AnyKernel3 AnyKernel
 
 echo "Done"
@@ -80,7 +80,7 @@ function zipping() {
 }
 sendinfo
 fixcharger
-compile
+compileclang
 zipping
 END=$(date +"%s")
 DIFF=$(($END - $START))
