@@ -60,7 +60,8 @@ cd /root/project/android_kernel_xiaomi_whyred
         make -j$(nproc) ARCH=arm64 O=out \
                                        CROSS_COMPILE=aarch64-linux-gnu- \
                                                                       CROSS_COMPILE_ARM32=arm-linux-gnueabi-
-                                                                      }
+     cp out/arch/arm64/boot/Image.gz-dtb /root/project/AnyKernel                                                              
+   }
 function compileclang() {
     cd /root/project/android_kernel_xiaomi_whyred
     make O=out ARCH=arm64 whyred-newcam_defconfig
