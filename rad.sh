@@ -29,7 +29,7 @@ git fetch --shallow-since=2021-02-01 zebu
 git cherry-pick ec27b2960cdca9fd2d5df46da21b20a90387be3a
 git remote add zebu2 https://github.com/SreekanthPalakurthi/kranul
 git fetch --shallow-since=2021-02-16 zebu2
-git cherry-pick 6578e67299772bba26a1c15e0b60f7e77781481e
+git cherry-pick zebu2 f14650b1984e23a1304eaee8aeae629414c92801
 }
 # Push kernel to channel
 function push() {
