@@ -25,8 +25,11 @@ echo "Add commit for fixing charging"
 cd /root/project/android_kernel_xiaomi_whyred
 git config uploadpack.allowReachableSHA1InWant true
 git remote add zebu https://github.com/theradcolor/android_kernel_xiaomi_whyred.git
-git fetch zebu ec27b2960cdca9fd2d5df46da21b20a90387be3a
+git fetch --shallow-since=2021-02-01 zebu
 git cherry-pick ec27b2960cdca9fd2d5df46da21b20a90387be3a
+git remote add zebu2 https://github.com/SreekanthPalakurthi/kranul
+git fetch --shallow-since=2021-02-16 zebu2
+git cherry-pick 6578e67299772bba26a1c15e0b60f7e77781481e
 }
 # Push kernel to channel
 function push() {
