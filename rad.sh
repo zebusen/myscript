@@ -55,6 +55,13 @@ function finerr() {
 }
 # Compile plox
 function compile() {
+cd /root/project/android_kernel_xiaomi_whyred
+    make -j$(nproc) O=out ARCH=arm64 whyred-newcam_defconfig
+        make -j$(nproc) ARCH=arm64 O=out \
+                                       CROSS_COMPILE=aarch64-linux-gnu- \
+                                                                      CROSS_COMPILE_ARM32=arm-linux-gnueabi-
+                                                                      }
+function compileclang() {
     cd /root/project/android_kernel_xiaomi_whyred
     make O=out ARCH=arm64 whyred-newcam_defconfig
     make -j$(nproc --all) O=out \
