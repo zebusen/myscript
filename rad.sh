@@ -30,9 +30,9 @@ git cherry-pick ec27b2960cdca9fd2d5df46da21b20a90387be3a
 git remote add zebu2 https://github.com/SreekanthPalakurthi/kranul
 git fetch --shallow-since=2021-01-31 zebu2
 git cherry-pick f14650b1984e23a1304eaee8aeae629414c92801
-#git remote add zebu3 https://github.com/gregkh/linux
-#git fetch --shallow-since=2021-02-17 zebu3
-#git merge v4.4.258
+git remote add zebu3 https://github.com/gregkh/linux
+git fetch --shallow-since=2021-02-17 zebu3
+git merge --allow-unrelated-histories v4.4.258
 }
 # Push kernel to channel
 function push() {
