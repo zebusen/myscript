@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 echo "Cloning dependencies"
-git clone --depth=1 --quiet https://github.com/kdrag0n/proton-clang clang
+#git clone --depth=1 --quiet https://github.com/kdrag0n/proton-clang clang
 git clone --depth=1 https://github.com/Reinazhard/AnyKernel3 AnyKernel
 
 echo "Done"
@@ -59,7 +59,7 @@ function compile() {
     make O=out ARCH=arm64 whyred-newcam_defconfig
     make -j$(nproc --all) O=out \
                           ARCH=arm64 \
-			  CC=clang \
+                          #CC=clang \
 			  CROSS_COMPILE=aarch64-linux-gnu- \
 			  CROSS_COMPILE_ARM32=arm-linux-gnueabi-
     cp out/arch/arm64/boot/Image.gz-dtb /root/project/AnyKernel
