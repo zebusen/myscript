@@ -65,7 +65,7 @@ cd /root/project/android_kernel_xiaomi_whyred
    }
 function compileclang() {
     cd /root/project/android_kernel_xiaomi_whyred
-    make O=out ARCH=arm64 whyred-newcam_defconfig
+    make O=out ARCH=arm64 whyred_defconfig
     make -j$(nproc --all) O=out \
                           ARCH=arm64 \
                           CC=clang \
