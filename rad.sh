@@ -30,10 +30,20 @@ git cherry-pick ec27b2960cdca9fd2d5df46da21b20a90387be3a
 git remote add zebu2 https://github.com/SreekanthPalakurthi/kranul
 git fetch --shallow-since=2021-01-31 zebu2
 git cherry-pick f14650b1984e23a1304eaee8aeae629414c92801
-git remote add zebu4 https://github.com/STRIX-Project/STRIX_kernel_xiaomi-sdm660
-git fetch --shallow-since=2021-03-01 zebu4
-git cherry-pick 4dcc711b847849a41e489752a61799e546312151
-git cherry-pick c9e0fd4611a99e86f2a68319d86d0516fa5b5c40
+git remote add zebu3 https://github.com/silont-project/android_kernel_xiaomi_sdm660.git
+git fetch --shallow-since=2021-03-01 zebu3
+git cherry-pick f1c027459f9b64cdeffbeebe29b3ad8e5cbcff52
+git cherry-pick c145b110c219fba64565a40969cebbc39a406045
+git cherry-pick 2d15b8351146e87d4846299ddc039e996229143c
+#iommu
+git cherry-pick 75b4dde4b0112f6c534ae55a688b58c62322464f
+#ion
+git cherry-pick 94bcb90005aedb5ae5775c60d6f0d78fdde98edd
+git cherry-pick 2d15b8351146e87d4846299ddc039e996229143c
+git cherry-pick 4a0f7b78ae41e8a751702c0af509c0123cc8d181
+git cherry-pick 8e97cf26101c770c31bc18ff4d12490b83d95144
+git cherry-pick 019fb94be69e9b243517efaab3fbb7d23db01ab9
+
 }
 # Push kernel to channel
 function push() {
@@ -76,7 +86,7 @@ function compileclang() {
 # Zipping
 function zipping() {
     cd /root/project/AnyKernel || exit 1
-    zip -r9 personal-newcam-radhmp.zip *
+    zip -r9 personal-oldcam-radhmp.zip *
     cd ..
 }
 sendinfo
