@@ -52,7 +52,7 @@ function finerr() {
         -d chat_id="-1001214166550" \
         -d "disable_web_page_preview=true" \
         -d "parse_mode=markdown" \
-        -d text="Build throw an error(s)"
+        -d text="Cooked raw"
     exit 1
 }
 # Compile plox
@@ -72,7 +72,13 @@ function compileclang() {
                           CC=clang \
 			  CROSS_COMPILE=aarch64-linux-gnu- \
 			  CROSS_COMPILE_ARM32=arm-linux-gnueabi-
-    cp out/arch/arm64/boot/Image.gz-dtb /root/project/AnyKernel
+    
+   if ! [ -a "$IMAGE" ]; then
+        finerr
+        exit 1
+
+fi 
+cp out/arch/arm64/boot/Image.gz-dtb /root/project/AnyKernel
 }
 # Zipping
 function zipping() {
