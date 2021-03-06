@@ -31,8 +31,13 @@ git remote add zebu2 https://github.com/SreekanthPalakurthi/kranul
 git fetch --shallow-since=2021-01-31 zebu2
 git cherry-pick f14650b1984e23a1304eaee8aeae629414c92801
 git remote add zebu3 https://github.com/Pzqqt/android_kernel_xiaomi_whyred.git
-git fetch --shallow-since=2021-01-17
+git fetch --shallow-since=2021-01-17 zebu3
 git cherry-pick ad76c7f5594e2175ef1317fe15c4f36d1d9b6669
+git remote add zebu4 https://github.com/stormbreaker-project/kernel_xiaomi_lavender.git
+git fetch --shallow-since=2021-02-11 zebu4
+git cherry-pick 19ce4948c2276ac4541eaa79c44e7cef84ce1414
+git cherry-pick 7eb15641fc812112944147df10df52aaa4ed56a7
+git cherry-pick 6b7e812a7ac6e6fa10a7924222bfd41f0fa6ea01
 }
 # Push kernel to channel
 function push() {
