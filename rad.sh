@@ -31,8 +31,8 @@ git remote add zebu2 https://github.com/SreekanthPalakurthi/kranul
 git fetch --shallow-since=2020-06-31 zebu2
 git cherry-pick f14650b1984e23a1304eaee8aeae629414c92801
 git cherry-pick c491c59c4a762a03b41078707a0f08f0c8e2431f
-git cherry-pick b2c890885a0cee05f12e9d8910168c8099248023
-git cherry-pick fd00fab3ffcee93bea2fda00e21ddf8eb24630c1
+git cherry-pick --continue b2c890885a0cee05f12e9d8910168c8099248023
+git cherry-pick --continue fd00fab3ffcee93bea2fda00e21ddf8eb24630c1
 }
 # Push kernel to channel
 function push() {
