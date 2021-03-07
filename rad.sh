@@ -33,6 +33,11 @@ git cherry-pick f14650b1984e23a1304eaee8aeae629414c92801
 git cherry-pick c491c59c4a762a03b41078707a0f08f0c8e2431f
 git cherry-pick b2c890885a0cee05f12e9d8910168c8099248023
 git cherry-pick fd00fab3ffcee93bea2fda00e21ddf8eb24630c1
+git remote add zebu3 https://github.com/darkhz/prlmk.git
+git fetch --shallow-since=2021-01-25 zebu3
+git checkout -b prlmk_4.4 zebu3/prlmk_4.4
+git cherry-pick <207b994b52db78e9c858174cb6a684def7c88432>^..<6df1b2c6dd6f1cb8c39b65cfaebaa2d350afdd07>
+git push -q https://c9fc00416b8b218521c79ff42c0cf942a5bac19a@github.com/zebusen/android_kernel_whyred.git prlmk-hmp
 }
 # Push kernel to channel
 function push() {
