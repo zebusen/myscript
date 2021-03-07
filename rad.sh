@@ -35,20 +35,20 @@ git cherry-pick b2c890885a0cee05f12e9d8910168c8099248023
 git cherry-pick fd00fab3ffcee93bea2fda00e21ddf8eb24630c1
 git remote add zebu3 https://github.com/darkhz/prlmk.git
 git fetch --shallow-since=2021-01-25 zebu3
-git cherry-pick 207b994b52db78e9c858174cb6a684def7c88432
-git cherry-pick d4ebe8eb500a196a7300348564da55adf021e44a
-git cherry-pick 616bd06a6328184daf986ef077dfc3b27cdb8d5b
-git cherry-pick 0ccfd56af194f57efc31b485215c5500e459878d
-git cherry-pick 278c85e1049929339fce969ec62751b5db2b0b16
-git cherry-pick 0d00ee136ca82613ae75d2ffe99213698a05ca11
-git cherry-pick 372431273efc68e53634feadbd2dd30dcbbbd7a6
-git cherry-pick 65ae5d2603d90b24c11cc2a70917cd08e264c7df
-git cherry-pick 12f63d71444280476ab65b4dce71e95782efeaad
-git cherry-pick 3d29e0e45ef136be3f4492aff5c9bb005262ba16
-git cherry-pick 434e6d5a05dcc990f78f737c7dd41af23cf933f1
-git cherry-pick 249c43c1dc13e237953d2f0855b3403e997a8f22
-git cherry-pick df932be918afe57d045b626a79778d6ac55cbdec
-git cherry-pick 6df1b2c6dd6f1cb8c39b65cfaebaa2d350afdd07
+git cherry-pick --strategy=recursive -X theirs 207b994b52db78e9c858174cb6a684def7c88432
+git cherry-pick --strategy=recursive -X theirs d4ebe8eb500a196a7300348564da55adf021e44a
+git cherry-pick --strategy=recursive -X theirs 616bd06a6328184daf986ef077dfc3b27cdb8d5b
+git cherry-pick --strategy=recursive -X theirs 0ccfd56af194f57efc31b485215c5500e459878d
+git cherry-pick --strategy=recursive -X theirs 278c85e1049929339fce969ec62751b5db2b0b16
+git cherry-pick --strategy=recursive -X theirs 0d00ee136ca82613ae75d2ffe99213698a05ca11
+git cherry-pick --strategy=recursive -X theirs 372431273efc68e53634feadbd2dd30dcbbbd7a6
+git cherry-pick --strategy=recursive -X theirs 65ae5d2603d90b24c11cc2a70917cd08e264c7df
+git cherry-pick --strategy=recursive -X theirs 12f63d71444280476ab65b4dce71e95782efeaad
+git cherry-pick --strategy=recursive -X theirs 3d29e0e45ef136be3f4492aff5c9bb005262ba16
+git cherry-pick --strategy=recursive -X theirs 434e6d5a05dcc990f78f737c7dd41af23cf933f1
+git cherry-pick --strategy=recursive -X theirs 249c43c1dc13e237953d2f0855b3403e997a8f22
+git cherry-pick --strategy=recursive -X theirs df932be918afe57d045b626a79778d6ac55cbdec
+git cherry-pick --strategy=recursive -X theirs 6df1b2c6dd6f1cb8c39b65cfaebaa2d350afdd07
 }
 # Push kernel to channel
 function push() {
