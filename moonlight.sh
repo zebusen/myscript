@@ -56,7 +56,6 @@ git config uploadpack.allowReachableSHA1InWant true
 git remote add zebu2 https://github.com/SreekanthPalakurthi/kranul
 git fetch --shallow-since=2020-06-31 zebu2
 git cherry-pick f14650b1984e23a1304eaee8aeae629414c92801
-git cherry-pick b2c890885a0cee05f12e9d8910168c8099248023
 }
 # Zipping
 function zipping() {
