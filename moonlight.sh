@@ -64,7 +64,6 @@ function zipping() {
     cd ..
 }
 sendinfo
-fixcharger
 compile
 zipping
 END=$(date +"%s")
