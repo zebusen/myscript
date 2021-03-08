@@ -63,7 +63,7 @@ git cherry-pick fd00fab3ffcee93bea2fda00e21ddf8eb24630c1
 # Zipping
 function zipping() {
     cd /root/project/AnyKernel || exit 1
-    zip -r9 personal-eas-moonlight$(date).zip *
+    zip -r9 personal-eas-moonlight$(date + "%t").zip *
     cd ..
 }
 sendinfo
